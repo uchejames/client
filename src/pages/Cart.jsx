@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, changeInCart } from "../features/reducers/cartSlice";
 import { IoWalletOutline } from "react-icons/io5";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart); // Get cart state from Redux
@@ -17,7 +18,13 @@ export default function Cart() {
       <main className="relative py-20 min-h-[70vh]">
         <section className="container mx-auto text-center">
           <h1 className="text-3xl font-bold text-primary mb-4">Your Cart</h1>
-          <p className="text-lg text-dark">Your cart is empty.</p>
+          <p className="text-lg text-dark mb-10">Your cart is empty.</p>
+        <Link
+          to="/Shop"
+          className="bg-secondary text-white font-bold py-3 px-4  rounded-lg hover:bg-highlight-dark transition duration-300"
+        >
+          Order Now
+        </Link>
         </section>
       </main>
     );
@@ -39,7 +46,7 @@ export default function Cart() {
             </div>
           </div>
           <div className="flex flex-col py-4 divide-y divide-slate-200">
-            {cart.map((item, index) => (
+            {cart.map((item) => (
               <aside key={item.id} className="p-2 flex items-center gap-2 justify-between relative">
                 <button
                   onClick={() => dispatch(removeFromCart(item.id))}
@@ -85,9 +92,9 @@ export default function Cart() {
               <p className="opacity-60">Grand Total:</p>
               <p className="text-base md:text-lg font-bold">${grandTotal.toLocaleString()}</p>
             </div>
-            <button className="bg-secondary hover:bg-primary text-white text-base md:text-lg rounded-md flex justify-center items-center gap-2 mt-2 p-2">
+            <Link to="/checkout" className="bg-secondary hover:bg-primary text-white text-base md:text-lg rounded-md flex justify-center items-center gap-2 mt-2 p-2">
               <IoWalletOutline /> Proceed to Checkout
-            </button>
+            </Link>
             <p className="opacity-60 text-xs text-center pt-1">
               100% Secure Payment. No card details Needed.
             </p>

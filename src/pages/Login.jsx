@@ -13,18 +13,39 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
 
+    if (!email || !password) {
+      setError("Please fill in both email and password.");
+      return;
+    }
+
+    setLoading(true);
     try {
       const response = await axios.post("http://localhost:3001/login", {
         email,
         password,
       });
-      console.log("Login successful:", response.data);
+
+      const { token, user } = response.data;
+
+      // Store token and user info in localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      console.log("Login successful:", user);
       navigate("/User");
     } catch (err) {
-      setError(err.response?.data?.error || "An error occurred. Please try again.");
+      console.error("Login error:", err);
+
+      // Handle specific error messages
+      if (err.response?.status === 401) {
+        setError("Invalid email or password.");
+      } else if (err.response?.status === 500) {
+        setError("Server error. Please try again later.");
+      } else {
+        setError(err.response?.data?.error || "An error occurred. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -72,9 +93,7 @@ export default function Login() {
           />
         </div>
 
-        {error && (
-          <p className="text-red-500 text-center font-medium">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-center font-medium">{error}</p>}
 
         <div className="flex items-center justify-between mb-4">
           <label className="flex items-center text-dark">
