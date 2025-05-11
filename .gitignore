@@ -35,15 +35,10 @@ ehthumbs.db
 Desktop.ini
 
 # Files
-# Allow specific files if needed (uncomment the line below)
-# !Welcome to Safe-WPS Office.pdf
+Welcome to Safe-WPS Office.pdf
 
 # Build artifacts
 build/
 .cache/
 out/
 coverage/
-
-# Allow specific build artifacts if necessary (uncomment the lines below)
-# !build/important-file.js
-# !.cache/specific-cache-file
