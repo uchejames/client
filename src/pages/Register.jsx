@@ -30,7 +30,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      let response = await axios.post("https://safeherb-server.onrender.com/register", formData);
+      let response = await axios.post("http://localhost:3001/register", formData);
       console.log("Registration successful:", response.data);
       alert("Registration successful! Redirecting to login...");
       navigate("/login");
