@@ -22,7 +22,7 @@ export default function Login() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3001/login", {
+      const response = await axios.post("https://safeherb-server.onrender.com/login", {
         email,
         password,
       });
