@@ -19,7 +19,7 @@ export default function User() {
         }
 
         // Send the token in the Authorization header
-        const response = await axios.get("http://localhost:3001/api/user", {
+        const response = await axios.get("https://safeherb-server.onrender.com/api/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
