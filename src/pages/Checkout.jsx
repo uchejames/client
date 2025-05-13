@@ -83,7 +83,7 @@ export default function Checkout() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/checkout",
+        "https://safeherb-server.onrender.com/api/checkout",
         checkoutPayload,
         {
           headers: {
