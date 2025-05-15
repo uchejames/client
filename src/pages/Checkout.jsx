@@ -161,12 +161,13 @@ export default function Checkout() {
             </div>
             <h2 className="text-xl font-bold text-dark mb-2">Action Required</h2>
             <p className="text-gray-600 mb-4">{alertMessage}</p>
-            <button
+            <Link
+              to="/login"
               onClick={() => setShowAlert(false)}
               className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
             >
-              Dismiss
-            </button>
+              Login
+            </Link>
           </div>
         </div>
       )}
