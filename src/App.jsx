@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./features/store";
 import "./index.css";
@@ -61,8 +61,22 @@ const PageRoutes = createBrowserRouter([
 ]);
 
 export default function App() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://embed.tawk.to/6826fda136f29c190d2159b4/1irc4tg72";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
+    document.body.appendChild(script);
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
-      <Provider store={store}>
+    <Provider store={store}>
       <main className="bg-highlight min-h-screen">
         <Toaster />
         <RouterProvider router={PageRoutes}></RouterProvider>
