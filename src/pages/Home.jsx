@@ -125,25 +125,30 @@ export default function Home() {
                 key={product.id}
                 className="bg-white shadow-md h-fit w-full rounded-lg p-4 flex flex-col items-center"
               >
-                <img
-                  src={product.image1 || "https://via.placeholder.com/150"}
-                  alt={product.title}
-                  className="w-full h-40 object-cover rounded-lg mb-4"
-                />
-                <h4
-                  className="text-lg font-bold text-primary mb-2 line-clamp-1"
-                  title={product.title}
-                >
-                  {product.title}
-                </h4>
-                <p className="text-sm font-bold text-dark">
-                  ${product.start_price} - ${product.end_price}
-                </p>
                 <Link
                   to={`/product/${product.id}`}
-                  className="text-dark px-1 mb-2 hover:text-highlight border-b-2 border-dark hover:border-highlight transition"
+                  className="flex flex-col items-center"
                 >
-                  Details
+                  <img
+                    src={product.image1 || "https://via.placeholder.com/150"}
+                    alt={product.title}
+                    className="w-full h-40 object-cover rounded-lg mb-4"
+                  />
+                  <h4
+                    className="text-lg font-bold text-primary mb-2 line-clamp-1"
+                    title={product.title}
+                  >
+                    {product.title}
+                  </h4>
+                  <p className="text-sm font-bold text-dark">
+                    ${product.start_price} - ${product.end_price}
+                  </p>
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="text-dark px-1 mb-2 hover:text-highlight border-b-2 border-dark hover:border-highlight transition"
+                  >
+                    Details
+                  </Link>
                 </Link>
                 <button
                   onClick={() => dispatch(addToCart(product))}

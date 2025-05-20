@@ -2,21 +2,7 @@ import kitsImages from "../assets/soro work/soro kit/kitsimages";
 import pillsImages from "../assets/soro work/soro mdma Xanax 2b/pillsimages";
 import naturalSupplementImages from "../assets/soro work/soro natural suppliments/naturalsupplimentimages";
 
-const pills = [// Define a function to combine the data
-function combineData(pills, kits, naturalSupplement) {
-  return [...pills, ...kits, ...naturalSupplement];
-}
-
-// Define a function to export the data
-function exportData(pills, kits, naturalSupplement, allItems) {
-  return { pills, kits, naturalSupplement, allItems };
-}
-
-// Combine the data
-const allItems = combineData(pills, kits, naturalSupplement);
-
-// Export the data
-export default exportData(pills, kits, naturalSupplement, allItems);
+const pills = [
   {
     id: "101",
     title: "2-CB",
@@ -51,9 +37,9 @@ export default exportData(pills, kits, naturalSupplement, allItems);
   },
   {
     id: "103",
-    title: "Xanax",
+    title: "Xanax 2mg",
     description:
-      "Blue Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects. Each pill contains a 2mg of alprazolam. Minimum quantity available for shipping is 30 pills.",
+      "Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects. Each pill contains a 2mg of alprazolam. Minimum quantity available for shipping is 30 pills.",
     start_price: 120,
     end_price: 900,
     image1: pillsImages[4],
