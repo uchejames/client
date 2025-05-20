@@ -78,7 +78,7 @@ const faqData = [
     id: 12542,
     question: "What shipping do you offer?",
     answer:
-      "We offer USPS priority mail shipping, a flat rate of $30 will be applied for orders under $300. Free shipping on all orders over $200. ",
+      "We offer USPS priority mail shipping, a flat rate of $30 will be applied for orders under $300. Free shipping on all orders over $300. ",
     category: "Shipping",
   },
   {

@@ -9,13 +9,13 @@ const asideData = [
     id: 2,
     title: "Why choose us?",
     description:
-      "We are committed to providing high-quality, lab-tested mushrooms, mushroom products and other products. Our team of experts is dedicated to educating our customers about the benefits and safe use of psilocybin mushrooms. We prioritize customer satisfaction and privacy and strive to create a positive and informative experience for all. Our delivery is fast and discreet, ensuring that your order arrives safely and securely.",
+      "We are committed to providing high-quality, lab-tested mushrooms, mushroom products and other products. Our team of experts is dedicated to educating our customers about the benefits and safe use of psilocybin mushrooms. We prioritize customer satisfaction and privacy and strive to create a positive and informative experience for all. Our delivery is fast and discreet, ensuring that your order arrives safely and securely. FREE SHIPPING ON ALL ORDERS OVER $300!",
   },
   {
     id: 3,
     title: "Want to microdose?",
     description:
-      "Microdosing is beyond the realm of psychedelics. It is the basic connectivity of the mind and body. It is a way to enhance your daily life without the intense effects of a full dose. Microdosing can help with creativity, focus, and overall well-being. It is a way to tap into your inner self and unlock your full potential.",
+      "Microdosing is beyond the realm of psychedelics. It is the basic connectivity of the mind and body. It is a way to enhance your daily life without the intense effects of a full dose. Microdosing can help with creativity, focus, and overall well-being. It is a way to tap into your inner self and unlock your full potential. GET A FREE GUIDE ON MICRODOSING WITH EVERY ORDER!",
   },
 ];
 
