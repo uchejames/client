@@ -7,7 +7,7 @@ const pills = [
     id: "101",
     title: "2-CB",
     description:
-      "2-CB is a psychedelic drug of the 2C family. It is a substituted phenethylamine and a member of the 2C family of drugs. It is known for its hallucinogenic effects and is often used recreationally.",
+      "2-CB is a psychedelic drug of the 2C family. It is a substituted phenethylamine and a member of the 2C family of drugs. It is known for its hallucinogenic effects and is often used recreationally. Minimum quantity available for shipping is 30 pills.",
     start_price: 110,
     end_price: 820,
     image1: pillsImages[0],
@@ -17,7 +17,7 @@ const pills = [
     id: "102",
     title: "150mg MDMA",
     description:
-      "150mg MDMA is a popular recreational drug known for its euphoric and empathogenic effects. It is often used in social settings. Each pill contains 150mg of MDMA.",
+      "150mg MDMA is a popular recreational drug known for its euphoric and empathogenic effects. It is often used in social settings. Each pill contains 150mg of MDMA. Minimum quantity available for shipping is 30 pills.",
     start_price: 100,
     end_price: 720,
     image1: pillsImages[2],
@@ -29,7 +29,7 @@ const pills = [
     id: "112",
     title: "200mg MDMA",
     description:
-      "200mg MDMA is a popular recreational drug known for its euphoric and empathogenic effects. It is often used in social settings. Each pill contains 200mg of MDMA.",
+      "200mg MDMA is a popular recreational drug known for its euphoric and empathogenic effects. It is often used in social settings. Each pill contains 200mg of MDMA. Minimum quantity available for shipping is 30 pills.",
     start_price: 140,
     end_price: 870,
     image1: pillsImages[3],
@@ -37,10 +37,10 @@ const pills = [
   },
   {
     id: "103",
-    title: "Blue Xanax",
+    title: "Xanax",
     description:
-      "Blue Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects. Each pill contains a 2mg of alprazolam.",
-    start_price: 150,
+      "Blue Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects. Each pill contains a 2mg of alprazolam. Minimum quantity available for shipping is 30 pills.",
+    start_price: 120,
     end_price: 900,
     image1: pillsImages[4],
     image2: pillsImages[5],
@@ -132,8 +132,8 @@ const pills = [
     id: "110",
     title: "Xanax",
     description:
-      "Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects.",
-    start_price: 140,
+      "Xanax is a medication used to treat anxiety and panic disorders. It is also known for its calming effects. Minimum quantity available for shipping is 30 pills.",
+    start_price: 100,
     end_price: 800,
     image1: pillsImages[18],
     image2: pillsImages[19],
@@ -153,8 +153,8 @@ const pills = [
     id: "152",
     title: "N,N-DMT",
     description:
-      "N,N-DMT (N,N-Dimethyltryptamine) is a powerful psychedelic compound known for its intense and short-lived effects.",
-    start_price: 140,
+      "N,N-DMT (N,N-Dimethyltryptamine) is a powerful psychedelic compound known for its intense and short-lived effects. The minimum quantity available is 5ml",
+    start_price: 110,
     end_price: 700,
     image1: pillsImages[24],
     image2: pillsImages[25],
@@ -162,11 +162,11 @@ const pills = [
   },
   {
     id: "172",
-    title: "Diazepam (Valium)",
+    title: "Blue Xanax",
     description:
-      "Diazepam (Valium) is a medication used to treat anxiety, muscle spasms, and seizures. It is also known for its calming effects.",
-    start_price: 120,
-    end_price: 750,
+      "Blue Xanax is a medication used to treat anxiety, muscle spasms, and seizures. It is also known for its calming effects. Minimum quantity available for shipping is 30 pills.",
+    start_price: 100,
+    end_price: 700,
     image1: pillsImages[27],
   },
   {
@@ -481,7 +481,7 @@ const naturalSupplement = [
     id: "358",
     title: "One Up Chocolate Bar",
     description:
-      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes",
+      "A quality branded psilocybin chocolate bar. Made to suit the user desires, can be used for therapeutic and recreational purposes.  Minimum quantity available for shippong is 4 packs",
     start_price: 250,
     end_price: 800,
     image1: naturalSupplementImages[18],
@@ -502,7 +502,7 @@ const naturalSupplement = [
     id: "338",
     title: "Stoney Patch Gummies",
     description:
-      "THC-infused gummies, perfect for a sweet and relaxing experience.",
+      "THC-infused gummies, perfect for a sweet and relaxing experience. Minimum quantity available for shippong is 4 packs",
     start_price: 100,
     end_price: 500,
     image1: naturalSupplementImages[21],
@@ -511,7 +511,7 @@ const naturalSupplement = [
     id: "372",
     title: "THC Edibles",
     description:
-      "THC-infused edibles, perfect for a sweet and relaxing experience.",
+      "THC-infused edibles, perfect for a sweet and relaxing experience.  Minimum quantity available for shippong is 4 packs",
     start_price: 120,
     end_price: 600,
     image1: naturalSupplementImages[22],
@@ -523,7 +523,7 @@ const naturalSupplement = [
     id: "377",
     title: "Trolli Sour Brite Crawlers",
     description:
-      "Sour gummy worms infused with THC, perfect for a sweet and relaxing experience.",
+      "Sour gummy worms infused with THC, perfect for a sweet and relaxing experience. Minimum quantity available for shippong is 4 packs",
     start_price: 120,
     end_price: 600,
     image1: naturalSupplementImages[23],

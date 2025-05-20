@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { clearCart } from "../features/reducers/cartSlice";
+import { wallet } from "../assets/images";
 
 const couponCodes = [
   "A1B2C3D4",
@@ -30,6 +31,7 @@ export default function Checkout() {
   const [showCartClearedMessage, setShowCartClearedMessage] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [showCryptoPopup, setShowCryptoPopup] = useState(false);
   const alertRef = useRef(null);
 
   const subtotal = cart.reduce(
@@ -42,6 +44,7 @@ export default function Checkout() {
   const handlePaymentSelection = (method) => {
     setPaymentMethod(method);
     setShowAlert(false);
+    // Remove popup logic from here
   };
 
   const handleCouponApply = () => {
@@ -57,7 +60,7 @@ export default function Checkout() {
 
   const handleCheckout = async () => {
     const token = user?.token || localStorage.getItem("token");
-    console.log("Token:", token); // Debugging // Check if token is retrieved correctly 
+    console.log("Token:", token);
 
     if (!token) {
       setAlertMessage("You must be logged in to proceed to checkout.");
@@ -68,10 +71,14 @@ export default function Checkout() {
     if (!paymentMethod) {
       setAlertMessage("Please select a payment method.");
       setShowAlert(true);
-
-      // Automatically hide the alert after 3 seconds
       setTimeout(() => setShowAlert(false), 3000);
       return;
+    }
+
+    // Show crypto popup if payment method is Crypto (USDT)
+    if (paymentMethod === "Crypto (USDT)") {
+      setShowCryptoPopup(true);
+      return; // Stop further checkout until user closes popup or confirms
     }
 
     const checkoutPayload = {
@@ -205,6 +212,46 @@ export default function Checkout() {
             <p className="text-lg text-gray-600">
               Your cart has been cleared. Redirecting to the shop...
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Crypto Popup */}
+      {showCryptoPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+            <h2 className="text-2xl font-bold mb-4 text-primary">Crypto Wallet</h2>
+            <p className="mb-4 text-dark">Send USDT to the wallet address below:</p>
+            {/* Wallet Barcode Image */}
+            <div className="flex justify-center mb-4">
+              <img
+                src={wallet}
+                alt="Crypto Wallet Barcode"
+                className="w-40 h-40 object-contain border border-gray-200 rounded mb-2"
+              />
+            </div>
+            <div className="flex items-center justify-center mb-4">
+              <input
+                type="text"
+                value="0xF92db2e61752DCf5b94BE7354759Cc8357d64DfB"
+                readOnly
+                className="border border-gray-300 rounded-l px-4 py-2 w-full text-center font-mono"
+              />
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText("0xF92db2e61752DCf5b94BE7354759Cc8357d64DfB");
+                }}
+                className="bg-highlight text-white px-4 py-2 rounded-r hover:bg-highlight-dark transition"
+              >
+                Copy
+              </button>
+            </div>
+            <button
+              onClick={() => setShowCryptoPopup(false)}
+              className="mt-4 bg-gray-300 text-dark px-4 py-2 rounded hover:bg-gray-400 transition"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}

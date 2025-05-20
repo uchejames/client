@@ -101,6 +101,6 @@ const pillsImages = [
   mdmaCrystal3,
 ];
 
-console.log(pillsImages.length);
+// console.log(pillsImages.length);
 
 export default pillsImages;

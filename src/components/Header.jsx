@@ -64,9 +64,9 @@ export default function Navbar() {
         <ul
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } transition-transform z-50 duration-500 ease-in-out absolute top-16 left-0 w-fit text-secondary font-bold bg-opacity-95 md:static md:bg-inherit md:flex md:flex-row md:items-center md:space-x-6 md:justify-between`}
+          } transition-transform z-50 duration-500 ease-in-out absolute top-16 left-0 w-fit text-light md:text-secondary font-bold bg-opacity-95 md:static md:bg-inherit md:flex md:flex-row md:items-center md:space-x-6 md:justify-between`}
         >
-          <div className="flex flex-col bg-highlight  bg-opacity-85 md:bg-inherit items-start gap-1 w-fit md:justify-center md:flex-row md:items-center md:gap-7">
+          <div className="flex flex-col bg-highlight bg-opacity-85 items-start gap-1 w-[100vw] md:w-fit md:bg-inherit md:justify-center md:flex-row md:items-center md:gap-7">
             {[
               { name: "Home", to: "/" },
               { name: "Shop", to: "/Shop" },
@@ -93,7 +93,8 @@ export default function Navbar() {
         <div className="flex w-max gap-2 md:gap-4 items-center mt-4 md:mt-0 relative">
           {/* Search Icon */}
           <button
-            className="h-8 w-8 z-20 text-primary hover:text-dark cursor-pointer flex justify-center items-center"
+            className={`h-8 w-8 z-20 cursor-pointer flex justify-center items-center 
+      ${isSearchOpen ? "text-highlight bg-highlight-light rounded-full shadow" : "text-primary hover:text-dark"}`}
             aria-label="Search"
             onClick={() => {
               if (isSearchOpen) {
@@ -117,8 +118,9 @@ export default function Navbar() {
             </div>
           )}
           <Link
-            to="/register"
-            className="h-8 w-8 text-primary hover:text-dark cursor-pointer flex justify-center items-center"
+            to="/User"
+            className={`h-8 w-8 cursor-pointer flex justify-center items-center 
+      ${location.pathname === "/User" ? "text-highlight bg-highlight-light rounded-full shadow" : "text-primary hover:text-dark"}`}
             aria-label="Account"
             onClick={() => setIsMenuOpen(false)}
           >
@@ -126,7 +128,8 @@ export default function Navbar() {
           </Link>
           <Link
             to="/cart"
-            className="h-8 w-8 text-primary hover:text-dark cursor-pointer flex justify-center items-center text-lg relative"
+            className={`h-8 w-8 cursor-pointer flex justify-center items-center text-lg relative 
+      ${location.pathname === "/cart" ? "text-highlight bg-highlight-light rounded-full shadow" : "text-primary hover:text-dark"}`}
             aria-label="Cart"
           >
             <HiOutlineShoppingCart />

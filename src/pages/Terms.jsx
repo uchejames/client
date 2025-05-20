@@ -245,8 +245,11 @@ export const termsSections = [
               psychedeliestore@gmail.com
             </a>
           </li>
-          <li>Facebook</li>
-          <li>Mailing Address: [Insert Discreet Return Address]</li>
+          <li>
+            <a href="https://www.facebook.com/safeherb">
+              Facebook
+            </a>
+          </li>
         </ul>
         <br />
         By using our website, you agree to the terms outlined in this{" "}

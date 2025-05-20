@@ -10,7 +10,8 @@ import shop from "./shop.jpg";
 import about from "./about.jpg";
 import user from "./user.jpg";
 import services from "./services.jpg";
+import wallet from "./walletcode.jpg";
 export {
-    logo, HeroSlider1, HeroSlider2, user, services 
+    logo, HeroSlider1, HeroSlider2, user, services, wallet
     ,HeroSlider3, formBackground, register, shop, about, login ,faqmushroom
 };

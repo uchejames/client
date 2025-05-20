@@ -56,51 +56,57 @@ const benefits = [
     description:
       "Our products are made from 100% natural ingredients, ensuring that you receive the purest and most effective mushroom supplements available.",
   },
+
+
 ];
+
+
 const reviews = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Dwayne",
     review:
       "I had an amazing experience with the microdosing capsules. They helped me focus and be more productive at work.",
     purchase: "Purchased containers of Microdosing Capsule",
   },
   {
     id: 2,
-    name: "Jane Smith",
+    name: "Anthony",
     review:
       "The mushroom chocolate bars are delicious! I love how they make me feel relaxed and creative.",
     purchase: "Purchased Herb Chocolate Bars",
   },
   {
     id: 3,
-    name: "Mike Johnson",
+    name: "Jason",
     review:
       "I was skeptical at first, but after trying the psilocybin capsules, I can honestly say they have changed my life for the better.",
     purchase: "Purchased containers of Microdosing Capsule",
   },
   {
     id: 4,
-    name: "Alice Brown",
+    name: "Alice",
     review:
       "The microdosing capsules have helped me manage my anxiety and improve my overall mood. Highly recommend!",
     purchase: "Purchased containers of Microdosing Capsule",
   },
   {
     id: 5,
-    name: "Bob Green",
+    name: "Bobby",
     review:
       "I love the mushroom coffee blend! It gives me a great energy boost without the jitters.",
     purchase: "Purchased Herb Coffee Blend",
   },
   {
     id: 6,
-    name: "Charlie White",
+    name: "Charlie",
     review:
       "The psilocybin chocolate bars are not only tasty but also provide a wonderful sense of relaxation and clarity.",
     purchase: "Purchased Herb Chocolate Bars",
   },
 ];
+
+
 const offer = [
   {
     id: 1,
@@ -139,5 +145,7 @@ const offer = [
       "nfographics, articles, and resources on set and setting, the Default Mode Network, creativity, safety, and more.",
   },
 ];
+
+
 // Export arrays
 export { asideData, benefits, reviews, offer };
