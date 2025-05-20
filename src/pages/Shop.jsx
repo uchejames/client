@@ -89,11 +89,12 @@ export default function Shop() {
             "https://via.placeholder.com/150"; // Fallback image
 
           return (
-            <Link to={`/product/${item.id}`}>
-              <div
-                key={item.id}
-                className="bg-backdrop p-4 rounded-lg shadow-md flex flex-col items-center"
-              >
+            <div
+              key={item.id}
+              className="bg-backdrop p-4 rounded-lg shadow-md flex flex-col items-center"
+            >
+              <Link to={`/product/${item.id}`}
+              className="items-center flex flex-col">
                 <img
                   src={randomImage}
                   alt={item.title}
@@ -111,14 +112,14 @@ export default function Shop() {
                 >
                   Details
                 </Link>
-                <button
-                  onClick={() => dispatch(addToCart(item))} // Dispatch addToCart action
-                  className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-highlight-dark transition"
-                >
-                  Order
-                </button>
-              </div>
-            </Link>
+              </Link>
+              <button
+                onClick={() => dispatch(addToCart(item))} // Dispatch addToCart action
+                className="bg-highlight text-white px-4 py-2 rounded-lg hover:bg-highlight-dark transition"
+              >
+                Order
+              </button>
+            </div>
           );
         })}
       </div>

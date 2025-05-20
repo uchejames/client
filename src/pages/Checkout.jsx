@@ -154,6 +154,13 @@ export default function Checkout() {
     };
   }, []);
 
+  useEffect(() => {
+      return () => {
+        window.scrollTo(0, 0);
+      };
+    }, []);
+  
+
   return (
     <section className="container mx-auto py-8 px-4 md:px-16 bg-light rounded-lg shadow-lg">
       {/* Alert Message */}
@@ -166,7 +173,9 @@ export default function Checkout() {
             <div className="text-red-500 text-4xl mb-4">
               <i className="fas fa-exclamation-circle"></i>
             </div>
-            <h2 className="text-xl font-bold text-dark mb-2">Action Required</h2>
+            <h2 className="text-xl font-bold text-dark mb-2">
+              Action Required
+            </h2>
             <p className="text-gray-600 mb-4">{alertMessage}</p>
             <Link
               to="/login"
@@ -190,7 +199,8 @@ export default function Checkout() {
               Order Placed Successfully!
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Thank you for your purchase! Your order has been placed successfully. You will receive an email confirmation shortly.
+              Thank you for your purchase! Your order has been placed
+              successfully. You will receive an email confirmation shortly.
             </p>
             <button
               onClick={() => setShowSuccessPopup(false)}
@@ -220,8 +230,12 @@ export default function Checkout() {
       {showCryptoPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
-            <h2 className="text-2xl font-bold mb-4 text-primary">Crypto Wallet</h2>
-            <p className="mb-4 text-dark">Send USDT to the wallet address below:</p>
+            <h2 className="text-2xl font-bold mb-4 text-primary">
+              Crypto Wallet
+            </h2>
+            <p className="mb-4 text-dark">
+              Send USDT to the wallet address below:
+            </p>
             {/* Wallet Barcode Image */}
             <div className="flex justify-center mb-4">
               <img
@@ -239,7 +253,9 @@ export default function Checkout() {
               />
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText("0xF92db2e61752DCf5b94BE7354759Cc8357d64DfB");
+                  navigator.clipboard.writeText(
+                    "0xF92db2e61752DCf5b94BE7354759Cc8357d64DfB"
+                  );
                 }}
                 className="bg-highlight text-white px-4 py-2 rounded-r hover:bg-highlight-dark transition"
               >
@@ -367,10 +383,22 @@ export default function Checkout() {
                 </p>
               </div>
             )}
+            {/* Shipping Fee */}
+            {grandTotal < 300 ? (
+              <div className="flex justify-between mb-2">
+                <p className="text-secondary">Shipping Fee:</p>
+                <p className="text-secondary font-bold">+$30.00</p>
+              </div>
+            ) : (
+              <div className="flex justify-between mb-2">
+                <p className="text-secondary">Shipping:</p>
+                <p className="text-green-600 font-bold">Free</p>
+              </div>
+            )}
             <div className="flex justify-between mb-4">
               <p className="text-secondary">Grand Total:</p>
               <p className="text-primary text-lg font-bold">
-                ${grandTotal.toFixed(2)}
+                ${(grandTotal < 300 ? grandTotal + 30 : grandTotal).toFixed(2)}
               </p>
             </div>
             <button

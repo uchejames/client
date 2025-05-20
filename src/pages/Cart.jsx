@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, changeInCart } from "../features/reducers/cartSlice";
 import { IoWalletOutline } from "react-icons/io5";
@@ -6,6 +6,12 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
+  useEffect(() => {
+      return () => {
+        window.scrollTo(0, 0);
+      };
+    }, []);
+  
   const cart = useSelector((state) => state.cart); // Get cart state from Redux
   const dispatch = useDispatch();
 
