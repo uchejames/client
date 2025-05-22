@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { register } from "../assets/images";
 import axios from "axios";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -29,14 +31,30 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    // Example: Basic phone validation
+    if (!formData.phone || formData.phone.replace(/\D/g, "").length < 8) {
+      alert("Please enter a valid phone number.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      let response = await axios.post("https://safeherb-server.onrender.com/register", formData);
+      let response = await axios.post(
+        "https://safeherb-server.onrender.com/register",
+        formData
+      );
       console.log("Registration successful:", response.data);
       alert("Registration successful! Redirecting to login...");
       navigate("/login");
     } catch (err) {
-      console.error("Error during registration:", err.response?.data || err.message);
-      alert(err.response?.data?.error || "An error occurred during registration.");
+      console.error(
+        "Error during registration:",
+        err.response?.data || err.message
+      );
+      alert(
+        err.response?.data?.error || "An error occurred during registration."
+      );
     } finally {
       setLoading(false);
     }
@@ -57,7 +75,9 @@ export default function Register() {
           data-aos-duration="1000"
         />
       </div>
-      <h1 className="text-3xl font-bold text-center text-primary mb-6">Register</h1>
+      <h1 className="text-3xl font-bold text-center text-primary mb-6">
+        Register
+      </h1>
       <form
         className="space-y-4 md:w-2/6 mx-auto bg-backdrop p-6 rounded-lg shadow-md"
         onSubmit={handleSubmit}
@@ -67,11 +87,26 @@ export default function Register() {
           { id: "email", label: "Email", type: "email" },
           { id: "password", label: "Password", type: "password", minLength: 6 },
           { id: "age", label: "Age", type: "number", min: 21 },
-          { id: "phone", label: "Phone Number", type: "tel", pattern: "[0-9]{10,15}" },
-          { id: "address", label: "Address", type: "textarea", placeholder: "Street Address" },
+          {
+            id: "phone",
+            label: "Phone Number",
+            type: "tel",
+            pattern: "[0-9]{10,15}",
+          },
+          {
+            id: "address",
+            label: "Address",
+            type: "textarea",
+            placeholder: "Street Address",
+          },
           { id: "town", label: "Town", type: "text" },
           { id: "city", label: "City", type: "text" },
-          { id: "zipCode", label: "Zip Code", type: "text", pattern: "\\d{4,10}" },
+          {
+            id: "zipCode",
+            label: "Zip Code",
+            type: "text",
+            pattern: "\\d{4,10}",
+          },
           {
             id: "specificDetails",
             label: "Other Specific Address Details",
@@ -81,10 +116,28 @@ export default function Register() {
           },
         ].map(({ id, label, type, ...props }) => (
           <div className="flex flex-col" key={id}>
-            <label htmlFor={id} className="text-lg font-semibold text-dark mb-2">
+            <label
+              htmlFor={id}
+              className="text-lg font-semibold text-dark mb-2"
+            >
               {label}:
             </label>
-            {type === "textarea" ? (
+            {id === "phone" ? (
+              <PhoneInput
+                country={"us"}
+                value={formData.phone}
+                onChange={(phone) =>
+                  setFormData((prev) => ({ ...prev, phone }))
+                }
+                inputProps={{
+                  name: "phone",
+                  required: true,
+                  autoFocus: false,
+                }}
+                containerClass="flex-1"
+                inputClass="w-full"
+              />
+            ) : type === "textarea" ? (
               <textarea
                 id={id}
                 name={id}
@@ -127,17 +180,24 @@ export default function Register() {
       </p>
       <div className="w-full flex flex-col items-center py-5 text-center">
         <p className="text-lg text-gray-700 mb-8 max-w-4xl">
-          Join the Safe Herb Community and unlock access to premium psychedelics,
-          microdosing solutions, grow kits, and personalized guides designed to support
-          your exploration and transformation. Whether you’re new or experienced, we provide
-          a safe, discreet, and informed space to begin your journey.
+          Join the Safe Herb Community and unlock access to premium
+          psychedelics, microdosing solutions, grow kits, and personalized
+          guides designed to support your exploration and transformation.
+          Whether you’re new or experienced, we provide a safe, discreet, and
+          informed space to begin your journey.
           <br />
           By signing up, you agree with our{" "}
-          <Link to="/Terms" className="text-highlight font-bold hover:underline">
+          <Link
+            to="/Terms"
+            className="text-highlight font-bold hover:underline"
+          >
             Terms and Conditions
           </Link>{" "}
           and acknowledge our{" "}
-          <Link to="/Terms#PrivacyPolicy" className="text-highlight font-bold hover:underline">
+          <Link
+            to="/Terms#PrivacyPolicy"
+            className="text-highlight font-bold hover:underline"
+          >
             Privacy Policy
           </Link>
           .

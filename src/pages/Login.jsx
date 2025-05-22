@@ -10,6 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,12 +30,14 @@ export default function Login() {
 
       const { token, user } = response.data;
 
-      // Store token and user info in localStorage
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
-
-      console.log("Login successful:", user);
-      navigate("/User");
+      // Store token and user info in localStorage or sessionStorage based on rememberMe
+      if (rememberMe) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+      } else {
+        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("user", JSON.stringify(user));
+      }
     } catch (err) {
       console.error("Login error:", err);
 
@@ -101,6 +104,8 @@ export default function Login() {
               type="checkbox"
               id="rememberMe"
               name="rememberMe"
+              checked={rememberMe}
+              onChange={() => setRememberMe((prev) => !prev)}
               className="w-4 h-4 text-highlight border-gray-300 rounded focus:ring-highlight"
             />
             <span className="ml-2">Remember Me</span>
