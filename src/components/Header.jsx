@@ -17,7 +17,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate(); // Initialize useNavigate
   const cart = useSelector((state) => state.cart); // Get cart state from Redux
-
+  const user = useSelector((state) => state.user); 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
@@ -118,9 +118,9 @@ export default function Navbar() {
             </div>
           )}
           <Link
-            to="/User"
+            to={user && user.token ? "/User" : "/login"}
             className={`h-8 w-8 cursor-pointer flex justify-center items-center 
-      ${location.pathname === "/User" ? "text-highlight bg-highlight-light rounded-full shadow" : "text-primary hover:text-dark"}`}
+    ${location.pathname === "/User" ? "text-highlight bg-highlight-light rounded-full shadow" : "text-primary hover:text-dark"}`}
             aria-label="Account"
             onClick={() => setIsMenuOpen(false)}
           >
